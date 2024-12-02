@@ -1,3 +1,4 @@
+import { authOptions } from "next-auth";
 import { NextResponse } from "next/server";
 
 // Dummy data
@@ -23,5 +24,6 @@ const posts = [
 ];
 
 export async function GET() {
+  const session = await getServerSession(authOptions);
   return NextResponse.json(posts);
 }
